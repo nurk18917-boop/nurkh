@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>PixelPerfect Assets</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">PixelPerfect</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#produk">Produk</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <header id="home">
+        <h1>PixelPerfect Assets</h1>
+        <p>Solusi Template Digital Terbaik untuk Kreativitas Anda.</p>
+    </header>
+
+    <section id="about" class="container">
+        <h2>Tentang Kami</h2>
+        <div class="content">
+            <p><strong>Latar Belakang:</strong> Kami hadir karena tingginya kebutuhan akan aset digital yang fungsional namun estetis bagi kreator konten dan pemilik bisnis.</p>
+            <h3>Visi</h3>
+            <p>Menjadi mitra utama bagi digital kreator di seluruh dunia.</p>
+            <h3>Misi</h3>
+            <p>Menyediakan aset digital berkualitas tinggi dengan harga yang terjangkau.</p>
+        </div>
+    </section>
+
+    <section id="produk" class="container">
+        <h2>Produk Kami</h2>
+        <div class="grid">
+            {% for item in products %}
+            <div class="card">
+                <h3>{{ item.name }}</h3>
+                <p>{{ item.desc }}</p>
+                <p><strong>{{ item.price }}</strong></p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section id="kontak" class="container">
+        <h2>Kontak Kami</h2>
+        <form id="contactForm">
+            <input type="text" id="nama" placeholder="Nama Anda" required>
+            <input type="email" id="email" placeholder="Email Anda" required>
+            <button type="submit">Kirim Pesan</button>
+        </form>
+        <div id="result"></div>
+    </section>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
